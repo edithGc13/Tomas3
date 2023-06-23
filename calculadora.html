@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css&quot; integrity= "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <title>Calcualdora Fisica</title>
+</head>
+<body>
+    <div style="margin: 24px;">
+        <nav class="navbar navbar-inverse navbar-stick-static-top">
+            <div class="container">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="index.html">Inicio</a>
+          </li>
+          <li>
+              <a href="menu.html">Menu</a>
+          </li>
+          <li>
+            <a href="cuestionario.html">Cuestionario</a>
+        </li>
+        <li>
+          <a href="movies.html">Movies</a>
+        </li>
+        <li>
+          <a href="perfil.html">Perfil</a>
+        </li>
+        <li class="active">
+          <a href="calculadora.html">Calculadora Fisica</a>
+        </li>
+        <li >
+            <a href="pedido.html">Pedido</titulo1></a>
+           </li>
+             </ul>
+            </div>
+        </nav>
+    </div>
+
+    <nav class="navbar" style="background-color: #caadad;">
+        <!-- Navbar content -->
+      </nav>
+      </body><div class="jumbotron">
+        <h1 class="display-4">C Fisica 1</h1>
+        <p class="lead">La física ​ es la ciencia natural que estudia la naturaleza de los componentes y fenómenos más fundamentales del Universo como lo son la energía, la materia, la fuerza, el movimiento, el espacio-tiempo, las magnitudes físicas, las propiedades físicas y las interacciones fundamentales.​​​ </p>
+        <form id="formulario">
+          <label for="distancia">Distacia:</label>
+          <input type="text" id="distancia" name="distancia">
+          <select id="distanciaUnidad">
+              <option value="metros">metros</option>
+              <option value="pies">pies</option>
+          </select>
+          <br>
+          <label for="tiempo">Tiempo:</label>
+          <input type="text" id="tiempo" name="Tiempo">
+          <select id="tiempoUnidad">
+              <option value="segundos">segundos</option>
+              <option value="horas">horas</option>
+          </select>
+          <br>
+          <label for="velocidadUnidad">Unidades de Velocidad:</label>
+          <select id="velocidadUnidad">
+          <option value="metros_por_segundo">m/s</option>
+          <option value="pies_por_segundo">ft/s</option>
+          <option value="kilometros_por_hora">km/hr</option>
+          <option value="millas_por_hora">mph</option>
+      </select>
+          <br>
+          <button type="button" value="Calcular" onclick="Calcular()" class="btn-success">Calcular</button>
+        </form>
+        <br>
+        <p id="resultado"></p>
+        <p style="color: rgb(204, 62, 233); background-color: rgb(191, 158, 221);">Velocidad: <span id="velocidad"></span></p>
+        <p style="color: rgb(255, 255, 255); background-color: rgb(228, 236, 157);">Aceleracion: <span id="aceleracion"></span></p>
+        <p style="color: rgb(2, 61, 2); background-color: rgb(115, 207, 122);">Rapidez: <span id="rapidez"></span></p>
+      
+      </div>
+      </div>
+      <script>
+          function Calcular(){
+              //obtener los valores del fomulario
+              const distancia=parseFloat(document.getElementById('distancia').value);
+              const tiempo=parseFloat(document.getElementById('tiempo').value);
+              const distanciaUnidad=document.getElementById('distanciaUnidad').value;
+              const tiempoUnidad=document.getElementById('tiempoUnidad').value;
+              const velocidadUnidad=document.getElementById('velocidadUnidad').value;
+              //Convertir unidad a Sistema metrico(SI)
+              let distanciaSI = 0;
+              let tiempoSI = 0;
+              if(distanciaUnidad=== 'metros'){
+                  distanciaSI = distancia;
+              }
+              else if (distanciaUnidad === 'pies'){
+                  distanciaSI = distancia /3.281;
+              }
+              if(tiempoUnidad ==='segundos'){
+                  tiempoSI =tiempo;
+              }
+              else if (tiempoUnidad === 'horas'){
+                  tiempoSI = tiempo * 3600;
+              }
+              //Calcular la velocidad, aceleracion y (rapidez)
+              let velocidad = 0;        
+              let aceleracion = 0;
+              let rapidez = 0;
+              if(velocidadUnidad === 'metros_por_segundo'){
+                  velocidad = distanciaSI / tiempoSI;
+                  rapidez = velocidad; //esta no es la formula
+                  aceleracion = velocidad / tiempoSI;
+              }
+              else if(velocidadUnidad === 'pies_por_segundo'){
+                  velocidad = (distanciaSI * 3.281) / tiempoSI;
+                  rapidez = velocidad; //esta no es la formula
+                  aceleracion = velocidad / tiempoSI;
+              }
+              else if(velocidadUnidad === 'kilometros_por_hora'){
+                  velocidad = (distanciaSI / 1000) / (tiempoSI / 3600);
+                  rapidez = velocidad; //esta no es la formula
+                  aceleracion = velocidad / tiempoSI;
+              }
+              else if(velocidadUnidad === 'millas_por_hora'){
+                  velocidad = (distanciaSI / 1609) / (tiempoSI / 3600);
+                  rapidez = velocidad; //esta no es la formula
+                  aceleracion = velocidad / tiempoSI;
+              }
+              //mostrar los resultados
+              let resultados = '';
+      
+              document.getElementById('velocidad').textContent = velocidad.toFixed(2) + '' + velocidadUnidad;
+              document.getElementById('aceleracion').textContent = aceleracion.toFixed(2) + '' + velocidadUnidad;
+              document.getElementById('rapidez').textContent = rapidez.toFixed(2) + '' + velocidadUnidad;
+      
+              document.getElementById('resultado').innerHTML=resultado;
+          }
+          
+      </script>
+      <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section about">
+
+    <i class="fa fa-facebook" aria-hidden="true"></i>
+    <h2>Contactame</h2>
+    <p>Si estas interesado en contactarme, puedes hacerlo a travez de cualquiera de las siguientes redes sociales.</p>
+    <p>Podras contactarme en cualquiera de estas apps:</p>
+    <p>Agregando solo un poco mas de informacion para que el texto se vea mucho mas ya que no se que mas agregarle...</p>
+    <div class="contact-links">
+    <a href="https://www.facebook.com/Sol_VC" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/miperfil" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.twitter.com/miperfil" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.discord.com/miperfil" target="_blank"><i class="fab fa-discord"></i></a>
+    <a href="https://www.twitch.com/miperfil" target="_blank"><i class="fab fa-twitch"></i></a>
+    </div>
+    </div>
+    </div>
+    </div>
+</footer>
+</body>
+</html>
