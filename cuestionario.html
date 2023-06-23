@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      
+
+      <link href="https://fonts.cdnfonts.com/css/fruinky" rel="stylesheet">
+      <link href="https://fonts.cdnfonts.com/css/levitation" rel="stylesheet">
+      <link href="https://fonts.cdnfonts.com/css/register" rel="stylesheet">       
+                    
+          <link rel="stylesheet" href="style.css">
+          <link rel="stylesheet" href="footer.css">
+  <title>Cuestionario</title>
+</head>
+
+<body>
+  <div style="margin: 24px;">
+    <nav class="navbar navbar-light" style="background-color: #230C33;">
+        <div class="container">
+            
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="index.html">inicio</titulo1></a>
+                </li
+                <li>
+                    <a href="menu.html">menu</titulo1></a>
+                </li>
+                <li>
+                    <a href="calculadora.html">calculadora fisica</titulo1></a>
+                </li>
+              <li>
+                <a href="movies.html">movies</titulo1>
+                </a>
+              </li>
+              <li class="active">
+                <a href="cuestionario.html">cuestionario</titulo1>
+                </a>
+              </li>
+               <li>
+                <a href="perfil.html">Perfil</titulo1>
+                </a>
+              </li>
+              <li >
+                <a href="pedido.html">Pedido</titulo1></a>
+               </li>
+            </ul>
+        </div>
+     </nav>
+</div>
+    
+<div class="container">
+  <div class="quiz-container" id="quiz">
+    <div class="quiz-header">
+      <div class="image-container">
+        <img src="imagen.jpg" alt="imagen" id="question-image" style="width: 250px; height:auto;">
+      </div>
+      <h2 id="question">Question text </h2>
+      <ul>
+        <li>
+          <input type="radio" name="answer" id="a" class="answer">
+          <label for="a" id="a_text">Question</label>
+        </li>
+                <li>
+          <input type="radio" name="answer" id="b" class="answer">
+          <label for="b" id="b_text">Question</label>
+        </li>
+                <li>
+          <input type="radio" name="answer" id="c" class="answer">
+          <label for="c" id="c_text">Question</label>
+        </li>
+                <li>
+          <input type="radio" name="answer" id="d" class="answer">
+          <label for="d" id="d_text">Question</label>
+        </li>
+      </ul>
+    </div>
+    <button id="submit">Submit</button>
+  </div>
+</div>
+<style>
+  body{
+    align-items: center;
+    justify-content: center;
+    overflow: 0;
+    margin: 0;
+  }
+  .quiz-container{
+background-color : #230C33;
+background-image: linear-gradient(315deg,#bfb2cc 0%,#2e834f 100%);
+border-radius:10px;
+box-shadow: 0 10px 20px 2px rgb(98, 97, 99);
+width: 400px;
+overflow: hidden;
+  }
+  .quiz-header{
+    padding: 15px;
+  }
+  h2{
+    padding:10px;
+    text-align: center;
+    margin: 0;
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  ul li{
+    font-size: 18px;
+    margin: 10px 0;
+  }
+ul li label{
+  cursor: pointer;
+}
+button{
+  background-color: whitesmoke;
+  color: #9984D4;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: 'Fruinky', sans-serif
+}
+button:hover{
+  background-color: rebeccapurple;
+}
+button:focus{
+  outline: none;
+  background-color: #230C33;
+}
+</style>
+<script>
+  const quizData = [
+    {
+      question: "1-Que actriz es Mexicana?",
+      image:"quiz1.jpg",
+      a: "Nicky Nicole",
+      b:"Lizeth Selene",
+      c:"Cazzu",
+      d:"Maria becerra",
+      correct:"b",
+    },
+    {
+      question: "2-como se llama?",
+      image:"https://i.pinimg.com/550x/f7/e2/d0/f7e2d016035463575ccce424dd620a3a.jpg",
+      a: "Lizeth Selene Manuel Zuñiga",
+      b:"Nicole Denise Cucco",
+      c:"Julieta Denise Cucco",
+      d:"Maria de los angeles Becerra",
+      correct:"a",
+    },
+    {
+      question: "3-Quien canta en Dubai",
+      image:"quiz1.jpg",
+      a: "Wos",
+      b:"Trueno",
+      c:"Feid",
+      d:"CRO",
+      correct:"b",
+    },
+    {
+      question: "4-Quien canta en Adromeda?",
+      image:"quiz1.jpg",
+      a: "Dani Ribba",
+      b:"Azcino",
+      c:"Wos",
+      d:"Trueno",
+      correct:"C",
+    },
+    {
+      question: "5-Quien produjo una cancion para el cats de rapidos y furiosos?",
+      image:"quiz1.jpg",
+      a: "Emilia",
+      b:"Maria Becerra",
+      c:"Nicky Nicole",
+      d:"Cazzu",
+      correct:"b",
+    },
+    {
+      question: "6- Que cantante se le conoce por usar el color verde ?",
+      image:"quiz1.jpg",
+      a: "J Balvin",
+      b:"Maluma",
+      c:"Sech",
+      d:"Feis",
+      correct:"d",
+    },
+    {
+      question: " 7- Quien canta c90?",
+      image:"quiz1.jpg",
+      a: "Jonh c",
+      b:"Cazzu",
+      c:"Feid",
+      d:" Sech",
+      correct:"Jonh c",
+    },
+    {
+      question: " 8- Que artista acaba de sacar su album llamado alma?",
+      image:"quiz1.jpg",
+      a: "Nicky Nicole",
+      b:"Ariana Grande",
+      c:"Lizeth Selene",
+      d:"Cazzu",
+      correct:"a",
+    },
+    {
+      question: " 9- Quien era la pareja de Nicky Nicole?",
+      image:"quiz1.jpg",
+      a: "Wos",
+      b:"Dani ribba",
+      c:"Snk",
+      d:"Trueno",
+      correct:"d",
+    },
+    {
+      question: " 10 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    {
+      question: "11 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    {
+      question: "12 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    {
+      question: "13- Que artistas colaboro con feis en clasy 101?",
+      image:"quiz1.jpg",
+      a: "Young miko",
+      b:"Cazzu",
+      c:"Karol g",
+      d:"Emilio",
+      correct:"a",
+    },
+    {
+      question: " 14- Con quien hizo remiz reid en Yandel 150?",
+      image:"quiz1.jpg",
+      a: "Daddy Yanke",
+      b:"Sech",
+      c:"Maluma",
+      d:"Emilia",
+      correct:"a",
+    },
+    {
+      question: "15- Quien canta la cancion 8am?",
+      image:"quiz1.jpg",
+      a: "Emilia",
+      b:"Nicky nicole",
+      c:"Cazzu",
+      d:"Maria Becerra",
+      correct:"b",
+    },
+    {
+      question: " 16- Como se llama la actriz principal en la pelicula cartas a julieta?",
+      image:"quiz1.jpg",
+      a: "Amanda seyFried",
+      b:"Megan fow",
+      c:"Luisa Raineri",
+      d:"Vanessa redgrave",
+      correct:"a",
+    },
+    {
+      queztion: " 17- Quien es el actor principal en querido jonh?",
+      image:"quiz1.jpg",
+      a: "Channing tatum",
+      b:"La roca",
+      c:"Scott proter",
+      d:"Henry tomaa",
+      correct:"a",
+    },
+    {
+      question: " 18 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    {
+      question: " 19 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    {
+      question: " 20 quien gana en una pelea de los siguientes personajes?",
+      image:"quiz1.jpg",
+      a: "Superman",
+      b:"goku",
+      c:"Batman",
+      d:"Dios",
+      correct:"d",
+    },
+    ];
+    const quiz = document.getElementById('quiz');
+    const answerEls=document.querySelectorAll('.answer');
+    const questionEl =document.getElementById('question');
+    //dependiendo del número de repuestas esto puede incrementar
+    const a_text=document.getElementById('a_text');
+    const b_text=document.getElementById('b_text');
+    const c_text=document.getElementById('c_text');
+    const d_text=document.getElementById('d_text');
+const submitBtn=document.getElementById('submit');
+let currentQuiz=0; //esta variable nos va a servir para realizar el seguimiento de ma pregunta 
+let score= 0; // esta variable realiza el siguiente del puntaje del usuario
+
+loadQuiz(); //va a cargar la primera pregunta del cuestionario
+function loadQuiz(){
+  deselectAnswers();
+  const currentQuizData= quizData[currentQuiz];// obtuene los datos de la pregunta actual
+  
+  questionEl.innerText = currentQuizData.question; //muestra la pregunta actual en el elemento html correspondiente 
+  
+  a_text.innerText = currentQuizData.a; //muestra la opción de la respuesta A en el elemento html correspondiente 
+  
+  b_text.innerText = currentQuizData.b; //muestra la opción de la respuesta B en el elemento html correspondiente 
+  
+  c_text.innerText = currentQuizData.c; //muestra la opción de la respuesta C en el elemento html correspondiente
+  
+ d_text.innerText = currentQuizData.d; //muestra la opción de la respuesta D en el elemento html correspondiente 
+ const questionImage = document.getElementById("question-image");
+ questionImage.src=currentQuizData.image;
+}
+function deselectAnswers(){
+  answerEls.forEach(answerEl => answerEl.checked= false); //desenmarca todas las casillas de verificación de respuesta.
+}
+function getSelected(){
+  let answer;
+  answerEls.forEach(answerEl => {
+    if(answerEl.checked){
+      answer = answerEl.id; //en esta parte obtienes ms opcion de la respuesta selecgionafs por el usuario 
+    }
+  });
+  return answer; //devuelve la opción de la respuesta seccionsda.
+}
+submitBtn.addEventListener('click',() =>{
+  const answer = getSelected(); //obtiene la opcion del a respuesta selecionada por el usuario 
+  if (answer){
+  if(answer === quizData[currentQuiz].correct){
+    score++; //incrementara el puntaje de las respuestas correctas 
+  }
+  currentQuiz++; //incrementa
+  if(currentQuiz < quizData.length){
+    loadQuiz();
+  } else{
+    quiz.innerHTML=`
+    <h2>Constestaste ${score}/${quizData.length} de preguntas correctamente </h2>
+    
+    <button onclick="location.reload()">Reload</button>
+    `
+  }
+  }
+})
+</script>
+    
+<br>
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section about">
+        <h2>Contactame</h2>
+        <p>si estas interesado en contactarme,puedes hacerlo a atraves de cualquiera de las siguientes 
+            redes Sociales:</p>
+        <div class="contact-links">
+        <a href="http://www.facebook.com/miperfil" 
+        target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="http://www.instagram.com/miperfil" 
+        target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.twitter.com/miperfil" 
+        target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.youtube.com/miperfil" 
+        target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="http://www.discord.com/miperfil" 
+        target="_blank"><i class="fab fa-discord"></i></a>
+        <a href="http://www.pinterest.com/miperfil" 
+        target="_blank"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  //este siguiente codigo es para que los enlaces se abran en una nueva pestaña
+  const redessociales = document.querySelectorAll('.contact-links');
+  redessociales.forEach(link =>{
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      window.open(link.href, '_blank');
+      });
+    });
+  </script>
+ </footer>
+</body>
+
+</html>
